@@ -1,21 +1,21 @@
-package Basharmal.AbstructComponents;
+package Basharmal.pageObjects;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import Basharmal.abstractcomponents.AbstractComponent;
 
 import java.util.List;
 
-public class CartSectionPage extends AbstructComponent {
+public class CartSectionPage extends AbstractComponent {
     WebDriver driver;
 
     public CartSectionPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
+        //this is
     }
 
 

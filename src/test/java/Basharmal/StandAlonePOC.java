@@ -1,13 +1,12 @@
-package Basharmal.AbstructComponents;
+package Basharmal;
 
+import Basharmal.pageObjects.CartSectionPage;
+import Basharmal.pageObjects.CheckOutPage;
+import Basharmal.pageObjects.LoginPage;
+import Basharmal.pageObjects.ProductCatalogue;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.time.Duration;
@@ -24,7 +23,7 @@ public class StandAlonePOC {
         ProductCatalogue productCatalogue =loginPage.loginAs(userEmail,userPassword);
         List<String> itemsAddToCart = Arrays.asList("ADIDAS ORIGINAL", "ZARA COAT 3", "iphone 13 pro");
         productCatalogue.addItemToCart(itemsAddToCart);
-        CartSectionPage cartSectionPage = productCatalogue.clickCartButton();
+        CartSectionPage cartSectionPage = productCatalogue.goToCartPage();
         Boolean result = cartSectionPage.checkItemAvailability(itemsAddToCart);//
         Assert.assertTrue(result);
         CheckOutPage chk = cartSectionPage.checkOut();

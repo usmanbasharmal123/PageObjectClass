@@ -1,11 +1,12 @@
-package Basharmal.AbstructComponents;
+package Basharmal.pageObjects;
 
+import Basharmal.abstractcomponents.AbstractComponent;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage extends AbstructComponent {
+public class LoginPage extends AbstractComponent {
     WebDriver driver;
 
     public LoginPage(WebDriver driver) {
@@ -23,6 +24,8 @@ public class LoginPage extends AbstructComponent {
 
     @FindBy(id = "login")
     private WebElement loginButton;
+    @FindBy(css="[class*='flyInOut']")
+    private WebElement erroMsg;
     //page Action
     public ProductCatalogue loginAs(String email, String password){
         userEmailInput.clear();
@@ -34,5 +37,10 @@ public class LoginPage extends AbstructComponent {
     }
     public void goTo(WebDriver driver){
         driver.get("https://rahulshettyacademy.com/client");
+//        System.out.println("Browser launched: " + driver);
+    }
+    public String errorValidation(){
+        waitForElementToDisappear(erroMsg);
+        return  erroMsg.getText();
     }
 }

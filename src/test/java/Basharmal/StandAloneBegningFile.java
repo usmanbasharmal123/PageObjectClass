@@ -1,4 +1,4 @@
-package Basharmal.AbstructComponents;
+package Basharmal;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -14,7 +14,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
-public class StandAloneTest {
+public class StandAloneBegningFile {
     public static void main(String[] args) throws InterruptedException {
         WebDriver driver= intialSetup();
         String userEmail ="usman.basharmal123@gmail.com";

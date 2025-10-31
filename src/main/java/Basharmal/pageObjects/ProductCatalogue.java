@@ -1,15 +1,15 @@
-package Basharmal.AbstructComponents;
+package Basharmal.pageObjects;
 
+import Basharmal.abstractcomponents.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-public class ProductCatalogue extends AbstructComponent {
+public class ProductCatalogue extends AbstractComponent {
     WebDriver driver;
 
     public ProductCatalogue(WebDriver driver) {
@@ -20,8 +20,10 @@ public class ProductCatalogue extends AbstructComponent {
     // Page Elements
     @FindBy(css = "div.card-body")
     private List<WebElement> products;
-    @FindBy(css = ".ng-animating")
+    @FindBy(css = "[class*='.ng-animating']")
     private WebElement ngAnimating;
+
+
   By productsLocator = By.cssSelector("div.card-body");
   By toastContainer=By.cssSelector("#toast-container");
   By btnAddToCart = By.xpath(".//button[text()=' Add To Cart']");
@@ -29,7 +31,7 @@ public class ProductCatalogue extends AbstructComponent {
 
     //page Action
     public List<WebElement> getProducts() {
-        waitForElementToBeAppeared(productsLocator);
+        waitForElementToAppear(productsLocator);
         return products;
     }
 
@@ -43,8 +45,8 @@ public class ProductCatalogue extends AbstructComponent {
                     .findFirst()
                     .ifPresent(product -> {
                         product.findElement(btnAddToCart).click();
-                        waitForElementToBeAppeared(toastContainer);
-                        waitForElementInvisibility(ngAnimating);
+                        waitForElementToAppear(toastContainer);
+                        waitForElementToDisappear(ngAnimating);
                         System.out.println("Item added to cart successfully " + item);
 
                     });
