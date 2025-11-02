@@ -17,6 +17,7 @@ public class ProductCatalogue extends AbstractComponent {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     // Page Elements
     @FindBy(css = "div.card-body")
     private List<WebElement> products;
@@ -24,10 +25,10 @@ public class ProductCatalogue extends AbstractComponent {
     private WebElement ngAnimating;
 
 
-  By productsLocator = By.cssSelector("div.card-body");
-  By toastContainer=By.cssSelector("#toast-container");
-  By btnAddToCart = By.xpath(".//button[text()=' Add To Cart']");
-  By tagName = By.tagName("h5");
+    By productsLocator = By.cssSelector("div.card-body");
+    By toastContainer = By.cssSelector("#toast-container");
+    By btnAddToCart = By.xpath(".//button[text()=' Add To Cart']");
+    By tagName = By.tagName("h5");
 
     //page Action
     public List<WebElement> getProducts() {
@@ -35,11 +36,11 @@ public class ProductCatalogue extends AbstractComponent {
         return products;
     }
 
-    public void addItemToCart(List<String>itemsAddToCart) {
+    public void addItemToCart(List<String> itemsAddToCart) {
         itemsAddToCart.forEach(item -> {
             getProducts().stream()
                     .filter(product -> {
-                        WebElement productName=product.findElement(tagName);
+                        WebElement productName = product.findElement(tagName);
                         return productName.getText().equalsIgnoreCase(item);
                     })
                     .findFirst()

@@ -15,12 +15,12 @@ import java.util.List;
 
 public class StandAlonePOC {
     public static void main(String[] args) throws InterruptedException {
-        WebDriver driver= intialSetup();
-        String userEmail ="usman.basharmal123@gmail.com";
-        String userPassword ="R@hulshetty.123";
+        WebDriver driver = intialSetup();
+        String userEmail = "usman.basharmal123@gmail.com";
+        String userPassword = "R@hulshetty.123";
         LoginPage loginPage = new LoginPage(driver);
         loginPage.goTo(driver);
-        ProductCatalogue productCatalogue =loginPage.loginAs(userEmail,userPassword);
+        ProductCatalogue productCatalogue = loginPage.loginAs(userEmail, userPassword);
         List<String> itemsAddToCart = Arrays.asList("ADIDAS ORIGINAL", "ZARA COAT 3", "iphone 13 pro");
         productCatalogue.addItemToCart(itemsAddToCart);
         CartSectionPage cartSectionPage = productCatalogue.goToCartPage();
@@ -29,13 +29,14 @@ public class StandAlonePOC {
         CheckOutPage chk = cartSectionPage.checkOut();
         String country = "India";
         chk.selectCountry(country);
-       String confirmationText= chk.getConfirmationText();
-      Assert.assertTrue(confirmationText.equalsIgnoreCase("Thankyou for the order."));
+        String confirmationText = chk.getConfirmationText();
+        Assert.assertTrue(confirmationText.equalsIgnoreCase("Thankyou for the order."));
 
     }
-    public static WebDriver intialSetup(){
+
+    public static WebDriver intialSetup() {
         WebDriverManager.firefoxdriver().setup();
-        WebDriver driver= new FirefoxDriver();
+        WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         return driver;

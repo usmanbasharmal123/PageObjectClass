@@ -24,10 +24,11 @@ public class LoginPage extends AbstractComponent {
 
     @FindBy(id = "login")
     private WebElement loginButton;
-    @FindBy(css="[class*='flyInOut']")
+    @FindBy(css = "[class*='flyInOut']")
     private WebElement erroMsg;
+
     //page Action
-    public ProductCatalogue loginAs(String email, String password){
+    public ProductCatalogue loginAs(String email, String password) {
         userEmailInput.clear();
         userEmailInput.sendKeys(email);
         passwordInput.clear();
@@ -35,12 +36,14 @@ public class LoginPage extends AbstractComponent {
         loginButton.click();
         return new ProductCatalogue(driver);
     }
-    public void goTo(WebDriver driver){
+
+    public void goTo(WebDriver driver) {
         driver.get("https://rahulshettyacademy.com/client");
 //        System.out.println("Browser launched: " + driver);
     }
-    public String errorValidation(){
+
+    public String errorValidation() {
         waitForElementToDisappear(erroMsg);
-        return  erroMsg.getText();
+        return erroMsg.getText();
     }
 }

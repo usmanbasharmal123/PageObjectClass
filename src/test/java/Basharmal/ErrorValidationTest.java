@@ -1,18 +1,21 @@
 package Basharmal;
 
 import Basharmal.TestComponents.BaseTest;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ErrorValidationTest extends BaseTest {
     @Test(groups = {"ErrorHandling"})
     public void LoginErrorValidationTest() {
-        String userEmail ="usman.basharmal4123@gmail.com";
-        String userPassword ="R@hulshetty4.123";
-        loginPage.loginAs(userEmail,userPassword);
+
+        String userEmail = "usman.basharmal4123@gmail.com";
+        String userPassword = "R@hulshetty4.123";
+        loginPage.loginAs(userEmail, userPassword);
 //        String error =loginPage.errorValidation();
 //        System.out.println(loginPage.errorValidation());
-        Assert.assertEquals(loginPage.errorValidation(), "Incorrect email or password.");
+        Assert.assertEquals(loginPage.errorValidation(), "Incorrect email  password.");
 
     }
 

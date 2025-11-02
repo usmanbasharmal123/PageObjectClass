@@ -22,11 +22,12 @@ public class OrderSectionPage extends AbstractComponent {
     @FindBy(css = "tr.ng-star-inserted td:nth-child(3)")
     private List<WebElement> orderList;
 
-//    WebElement btnCheckout;
+    //    WebElement btnCheckout;
     //page Action
-    public List<WebElement> orderListTable(){
+    public List<WebElement> orderListTable() {
         return orderList;
     }
+
     public Boolean VerifyOrderDisplay(List<String> itemsAddToCart) {
         return itemsAddToCart.stream().
                 allMatch(item -> orderListTable().stream().

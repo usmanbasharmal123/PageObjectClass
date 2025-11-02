@@ -19,26 +19,28 @@ public class CartSectionPage extends AbstractComponent {
     }
 
 
-
     // Page Elements
 //    List<WebElement> productsAddedToCart = driver.findElements(By.cssSelector(".cartSection h3"));
 
     @FindBy(css = ".cartSection h3")
     private List<WebElement> productsAddToCart;
-    @FindBy(css=".totalRow button")
+    @FindBy(css = ".totalRow button")
     WebElement btnCheckout;
-//    WebElement btnCheckout;
+
+    //    WebElement btnCheckout;
     //page Action
-    public List<WebElement> productsAddedToCart(){
+    public List<WebElement> productsAddedToCart() {
         return productsAddToCart;
     }
+
     public Boolean checkItemAvailability(List<String> itemsAddToCart) {
         return itemsAddToCart.stream().
                 allMatch(item -> productsAddedToCart().stream().
                         anyMatch(product -> product.getText().equalsIgnoreCase(item)));
 
     }
-    public CheckOutPage checkOut(){
+
+    public CheckOutPage checkOut() {
         waitForElementToBeClickable(btnCheckout);
         btnCheckout.click();
         return new CheckOutPage(driver);

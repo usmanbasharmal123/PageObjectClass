@@ -16,9 +16,9 @@ import java.util.List;
 
 public class StandAloneBegningFile {
     public static void main(String[] args) throws InterruptedException {
-        WebDriver driver= intialSetup();
-        String userEmail ="usman.basharmal123@gmail.com";
-        String userPassword ="R@hulshetty.123";
+        WebDriver driver = intialSetup();
+        String userEmail = "usman.basharmal123@gmail.com";
+        String userPassword = "R@hulshetty.123";
         driver.get("https://rahulshettyacademy.com/client");
         driver.findElement(By.id("userEmail")).sendKeys(userEmail);
         driver.findElement(By.id("userPassword")).sendKeys(userPassword);
@@ -33,11 +33,11 @@ public class StandAloneBegningFile {
 //        ProductCatalogue productCatalogue = new ProductCatalogue(driver);
 //        List<WebElement>products = productCatalogue.getProducts();
 
-        List<WebElement>products =driver.findElements(By.cssSelector("div.card-body"));
+        List<WebElement> products = driver.findElements(By.cssSelector("div.card-body"));
         itemsAddToCart.forEach(item -> {
             products.stream()
                     .filter(product -> {
-                        WebElement productName=product.findElement(By.tagName("h5"));
+                        WebElement productName = product.findElement(By.tagName("h5"));
                         return productName.getText().equalsIgnoreCase(item);
                     })
                     .findFirst()
@@ -46,7 +46,7 @@ public class StandAloneBegningFile {
                         wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
                         wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.cssSelector(".ng-animating"))));
 
-                         System.out.println("Item added to cart successfully " + item);
+                        System.out.println("Item added to cart successfully " + item);
 
                     });
         });
@@ -70,7 +70,7 @@ public class StandAloneBegningFile {
         driver.findElement(By.cssSelector("button[routerlink*='cart']")).click();
         //get the card products and apply assertion
 
-        List<WebElement>productsAddedToCart = driver.findElements(By.cssSelector(".cartSection h3"));
+        List<WebElement> productsAddedToCart = driver.findElements(By.cssSelector(".cartSection h3"));
         System.out.println("Items added to cart successfully " + productsAddedToCart.size());
 
         Boolean result = itemsAddToCart.stream().
@@ -80,24 +80,24 @@ public class StandAloneBegningFile {
         Assert.assertTrue(result);
 //        Thread.sleep(5000);
         WebElement btnCheckout = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//li[@class='totalRow']//button")));
-      btnCheckout.click();
-      Actions actions = new Actions(driver);
-      actions.sendKeys(driver.findElement(By.cssSelector("input[placeholder='Select Country']")),"India").perform();
-      wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
+        btnCheckout.click();
+        Actions actions = new Actions(driver);
+        actions.sendKeys(driver.findElement(By.cssSelector("input[placeholder='Select Country']")), "India").perform();
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".ta-results")));
 //
-      actions.click(driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)"))).perform();
-      actions.click(driver.findElement(By.className("action__submit"))).perform();
-       String confirmationText= driver.findElement(By.cssSelector("h1.hero-primary")).getText();
-      Assert.assertTrue(confirmationText.equalsIgnoreCase("Thankyou for the order."));
-
+        actions.click(driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)"))).perform();
+        actions.click(driver.findElement(By.className("action__submit"))).perform();
+        String confirmationText = driver.findElement(By.cssSelector("h1.hero-primary")).getText();
+        Assert.assertTrue(confirmationText.equalsIgnoreCase("Thankyou for the order."));
 
 
         //check out
 
     }
-    public static WebDriver intialSetup(){
+
+    public static WebDriver intialSetup() {
         WebDriverManager.firefoxdriver().setup();
-        WebDriver driver= new FirefoxDriver();
+        WebDriver driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         return driver;

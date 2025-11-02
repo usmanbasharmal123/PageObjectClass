@@ -13,31 +13,33 @@ import java.util.Optional;
 
 public class CheckOutPage extends AbstractComponent {
     WebDriver driver;
+
     public CheckOutPage(WebDriver driver) {
         super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    @FindBy(css ="input[placeholder='Select Country']")
-    private WebElement selectCountry;
-    @FindBy(className ="action__submit")
-    private WebElement btnSubmit;
-    @FindBy(css ="h1.hero-primary")
-    private WebElement confirmationText;
-public void selectCountry(String country) {
-    Actions actions = new Actions(driver);
-    actions.sendKeys(selectCountry, country).perform();
-// Wait for the dropdown to appear
-    By countryDropdownContainer = By.cssSelector(".ta-results");
-    waitForElementToAppear(countryDropdownContainer);
-    // Get all the country suggestions
-    By countrySuggestions = By.cssSelector(".ta-item");
-    List<WebElement> results = driver.findElements(countrySuggestions);
-    results.stream().filter(element -> element.getText().equals(country))
-            .findFirst().ifPresentOrElse(WebElement::click, () -> {
-                throw new RuntimeException("Country not found in dropdown: " + country);
-            });
 
+    @FindBy(css = "input[placeholder='Select Country']")
+    private WebElement selectCountry;
+    @FindBy(className = "action__submit")
+    private WebElement btnSubmit;
+    @FindBy(css = "h1.hero-primary")
+    private WebElement confirmationText;
+
+    public void selectCountry(String country) {
+        Actions actions = new Actions(driver);
+        actions.sendKeys(selectCountry, country).perform();
+// Wait for the dropdown to appear
+        By countryDropdownContainer = By.cssSelector(".ta-results");
+        waitForElementToAppear(countryDropdownContainer);
+        // Get all the country suggestions
+        By countrySuggestions = By.cssSelector(".ta-item");
+        List<WebElement> results = driver.findElements(countrySuggestions);
+        results.stream().filter(element -> element.getText().equals(country))
+                .findFirst().ifPresentOrElse(WebElement::click, () -> {
+                    throw new RuntimeException("Country not found in dropdown: " + country);
+                });
 
 
 //    boolean countryFound = false;
@@ -59,8 +61,8 @@ public void selectCountry(String country) {
 //        throw new RuntimeException("Country not found in dropdown: " + country);
 //    }
 
-    actions.click(btnSubmit).perform();
-}
+        actions.click(btnSubmit).perform();
+    }
 
     public String getConfirmationText() {
         return confirmationText.getText();

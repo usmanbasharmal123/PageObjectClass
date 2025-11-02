@@ -33,17 +33,22 @@ public class AbstractComponent {
         PageFactory.initElements(driver, this);
     }
 
-    /** Waits for an element located by a By locator to be visible. */
+    /**
+     * Waits for an element located by a By locator to be visible.
+     */
     public void waitForElementToAppear(By locator) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
+
     public void waitForElementToAppearByElement(WebElement locator) {
         new WebDriverWait(driver, Duration.ofSeconds(5))
                 .until(ExpectedConditions.visibilityOf(locator));
     }
 
-    /** Waits for a WebElement to become invisible. */
+    /**
+     * Waits for a WebElement to become invisible.
+     */
     public void waitForElementToDisappear(WebElement element) {
         new FluentWait<>(driver)
                 .withTimeout(Duration.ofSeconds(10))
@@ -52,13 +57,17 @@ public class AbstractComponent {
                 .until(ExpectedConditions.invisibilityOf(element));
     }
 
-    /** Waits for an element located by a By locator to become invisible. */
+    /**
+     * Waits for an element located by a By locator to become invisible.
+     */
     public void waitForElementToDisappear(By locator) {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 
-    /** Waits for a WebElement to become clickable. */
+    /**
+     * Waits for a WebElement to become clickable.
+     */
     public void waitForElementToBeClickable(WebElement element) {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.elementToBeClickable(element));
@@ -81,6 +90,7 @@ public class AbstractComponent {
 
     /**
      * Navigates to the Cart section.
+     *
      * @return CartSectionPage object
      */
     public CartSectionPage goToCartPage() {
@@ -90,6 +100,7 @@ public class AbstractComponent {
 
     /**
      * Navigates to the Orders section.
+     *
      * @return OrderSectionPage object
      */
     public OrderSectionPage goToOrdersPage() {

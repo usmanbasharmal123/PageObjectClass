@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" parallel="none">
+    <groups>
+        <run>
+            <include name="Purchase"/>
+        </run>
+    </groups>
+    <!--    <parallel mean run the tests all at same time    and thread-count means up to 5 browser should be open -->
+    <test name="firstTest">
+        <classes>
+            <class name="Basharmal.StandAloneTest"/>
+        </classes>
+    </test>
+    <test name="Error Validation Test">
+        <classes>
+            <class name="Basharmal.ErrorValidationTest"/>
+        </classes>
+
+    </test>
+</suite>
