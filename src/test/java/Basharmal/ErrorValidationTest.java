@@ -1,13 +1,12 @@
 package Basharmal;
 
 import Basharmal.TestComponents.BaseTest;
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import Basharmal.TestComponents.Retry;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ErrorValidationTest extends BaseTest {
-    @Test(groups = {"ErrorHandling"})
+    @Test(groups = {"ErrorHandling"},retryAnalyzer= Retry.class)
     public void LoginErrorValidationTest() {
 
         String userEmail = "usman.basharmal4123@gmail.com";
@@ -15,7 +14,7 @@ public class ErrorValidationTest extends BaseTest {
         loginPage.loginAs(userEmail, userPassword);
 //        String error =loginPage.errorValidation();
 //        System.out.println(loginPage.errorValidation());
-        Assert.assertEquals(loginPage.errorValidation(), "Incorrect email  password.");
+        Assert.assertEquals(loginPage.errorValidation(), "Incorrect email or password.");
 
     }
 

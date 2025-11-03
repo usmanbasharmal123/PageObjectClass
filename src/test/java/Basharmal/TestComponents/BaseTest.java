@@ -10,6 +10,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.*;
@@ -34,20 +35,32 @@ public class BaseTest {
         Properties prop = new Properties();
         FileInputStream input = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//Basharmal//resources//GlobalData.properties");
         prop.load(input);
-        String browser = prop.getProperty("browser");
-        if (browser.equalsIgnoreCase("chrome")) {
+        String browser =System.getProperty("browser")==null? prop.getProperty("browser"):System.getProperty("browser");
+        if (browser.contains("chrome")) {
+            ChromeOptions options = new ChromeOptions();
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            if(browser.contains("headless")) {
+            options.addArguments("headless");
+            }
+
+            driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         } else if (browser.equalsIgnoreCase("edge")) {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
+
+            try {
+                WebDriverManager.edgedriver().setup();
+                driver = new EdgeDriver();
+            } catch (Exception e) {
+                System.setProperty("webdriver.edge.driver", "C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedgedriver.exe");
+                driver = new EdgeDriver();
+            }
         }
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        System.out.println("Browser selected: " + browser);
         return driver;
     }
 
@@ -59,20 +72,7 @@ public class BaseTest {
         });
         return data;
     }
-//    @BeforeTest
-//    public void config()  {
-//        ExtentSparkReporter spark = new ExtentSparkReporter("Reports/sampleReport.html");
-//        spark.config().setTheme(Theme.DARK);
-//        spark.config().setDocumentTitle("MyReport");
-//        spark.config().setReportName("Test Report");
-//
-//        extent = new ExtentReports();
-//        extent.attachReporter(spark);
-//
 
-    /// /
-    /// /        ExtendReports
-//    }
     public String getScreenshoot(String testCaseFileName, WebDriver driver) throws IOException {
         String screenshotDir = System.getProperty("user.dir") + "//reports//screenshots//";
         File screenshotFolder = new File(screenshotDir);
@@ -101,10 +101,11 @@ public class BaseTest {
 
     @AfterMethod(alwaysRun = true)
     public void closeBrowser() {
-//        if (driver != null) {
-        driver.quit();
-//            System.out.println("Browser closed.");
-//        }
+        if (driver != null) {
+            driver.quit();
+        } else {
+            System.out.println("Driver was null — browser may have failed to launch.");
+        }
     }
 
 }
