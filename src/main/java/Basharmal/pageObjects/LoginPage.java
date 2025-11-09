@@ -37,7 +37,7 @@ public class LoginPage extends AbstractComponent {
         return new ProductCatalogue(driver);
     }
 
-    public void goTo() {
+    public void goTo(WebDriver driver) {
         driver.get("https://rahulshettyacademy.com/client");
 //        System.out.println("Browser launched: " + driver);
     }
