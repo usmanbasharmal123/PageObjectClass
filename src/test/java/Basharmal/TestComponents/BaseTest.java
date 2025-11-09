@@ -95,7 +95,7 @@ public class BaseTest {
 //        extent.createTest("Initial Demo");
         driver = intialSetup();
         loginPage = new LoginPage(driver);
-        loginPage.goTo(driver);
+        loginPage.goTo();
 //        extent.flush();
     }
 

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results retried="1" ignored="0" total="5" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-11-03T08:41:15 EST" name="Suite" finished-at="2025-11-03T08:42:48 EST" duration-ms="92817">
+    <groups>
+      <group name="ErrorHandling">
+        <method signature="ErrorValidationTest.LoginErrorValidationTest()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" name="LoginErrorValidationTest" class="Basharmal.ErrorValidationTest"/>
+      </group> <!-- ErrorHandling -->
+      <group name="Purchase">
+        <method signature="StandAloneTest.submitOrder(java.util.HashMap)[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" name="submitOrder" class="Basharmal.StandAloneTest"/>
+      </group> <!-- Purchase -->
+    </groups>
+    <test started-at="2025-11-03T08:41:15 EST" name="Error Validation Test" finished-at="2025-11-03T08:41:52 EST" duration-ms="37521">
+      <class name="Basharmal.ErrorValidationTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" started-at="2025-11-03T08:41:15 EST" name="launchApplication" finished-at="2025-11-03T08:41:26 EST" duration-ms="11663" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method retried="true" signature="LoginErrorValidationTest()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" started-at="2025-11-03T08:41:26 EST" name="LoginErrorValidationTest" finished-at="2025-11-03T08:41:39 EST" duration-ms="12636" status="SKIP">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[Unable to locate element: [class*='flyInOut']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.33.0', revision: '2c6aaad03a'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [4093217a-77d2-420d-a017-0c0867cbdd21, findElement {using=css selector, value=[class*='flyInOut']}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 144.0.2, moz:accessibilityChecks: false, moz:buildID: 20251027123126, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 33188, moz:profile: C:\Users\BASHAR~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 4093217a-77d2-420d-a017-0c0867cbdd21]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: Unable to locate element: [class*='flyInOut']
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.33.0', revision: '2c6aaad03a'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '23.0.2'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Command: [4093217a-77d2-420d-a017-0c0867cbdd21, findElement {using=css selector, value=[class*='flyInOut']}]
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 144.0.2, moz:accessibilityChecks: false, moz:buildID: 20251027123126, moz:geckodriverVersion: 0.36.0, moz:headless: false, moz:platformVersion: 10.0, moz:processID: 33188, moz:profile: C:\Users\BASHAR~1\AppData\L..., moz:shutdownTimeout: 60000, moz:webdriverClick: true, moz:windowless: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, userAgent: Mozilla/5.0 (Windows NT 10....}
+Session ID: 4093217a-77d2-420d-a017-0c0867cbdd21
+at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:544)
+at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:367)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:361)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at jdk.proxy2/jdk.proxy2.$Proxy13.getText(Unknown Source)
+at Basharmal.pageObjects.LoginPage.errorValidation(LoginPage.java:47)
+at Basharmal.ErrorValidationTest.LoginErrorValidationTest(ErrorValidationTest.java:17)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1597)
+at org.testng.TestRunner.privateRun(TestRunner.java:741)
+at org.testng.TestRunner.run(TestRunner.java:616)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:421)
+at org.testng.SuiteRunner$SuiteWorker.run(SuiteRunner.java:463)
+at org.testng.internal.thread.ThreadUtil.lambda$execute$0(ThreadUtil.java:64)
+at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+at java.base/java.lang.Thread.run(Thread.java:1575)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidationTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" started-at="2025-11-03T08:41:39 EST" name="closeBrowser" finished-at="2025-11-03T08:41:40 EST" duration-ms="1283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" started-at="2025-11-03T08:41:40 EST" name="launchApplication" finished-at="2025-11-03T08:41:51 EST" duration-ms="10082" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="LoginErrorValidationTest()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" started-at="2025-11-03T08:41:51 EST" name="LoginErrorValidationTest" finished-at="2025-11-03T08:41:51 EST" duration-ms="513" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- LoginErrorValidationTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Basharmal.ErrorValidationTest@4ef74c30]" started-at="2025-11-03T08:41:51 EST" name="closeBrowser" finished-at="2025-11-03T08:41:52 EST" duration-ms="1264" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Basharmal.ErrorValidationTest -->
+    </test> <!-- Error Validation Test -->
+    <test started-at="2025-11-03T08:41:15 EST" name="firstTest" finished-at="2025-11-03T08:42:48 EST" duration-ms="92817">
+      <class name="Basharmal.StandAloneTest">
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:41:15 EST" name="launchApplication" finished-at="2025-11-03T08:41:26 EST" duration-ms="11295" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:41:26 EST" name="submitOrder" data-provider="getData" finished-at="2025-11-03T08:41:54 EST" duration-ms="27780" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{country=India, userPassword=R@hulshetty.123, userEmail=usman.basharmal123@gmail.com, itemsAddToCart=[ADIDAS ORIGINAL, ZARA COAT 3, iphone 13 pro]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:41:54 EST" name="closeBrowser" finished-at="2025-11-03T08:41:55 EST" duration-ms="1118" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:41:55 EST" name="launchApplication" finished-at="2025-11-03T08:42:07 EST" duration-ms="11263" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="submitOrder(java.util.HashMap)[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:42:07 EST" name="submitOrder" data-provider="getData" finished-at="2025-11-03T08:42:34 EST" duration-ms="27638" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{country=Pakistan, userPassword=walwalah@S123, userEmail=walwalahsherzai@gmail.com, itemsAddToCart=[ADIDAS ORIGINAL, ZARA COAT 3, iphone 13 pro]}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- submitOrder -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:42:34 EST" name="closeBrowser" finished-at="2025-11-03T08:42:35 EST" duration-ms="1120" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+        <test-method is-config="true" signature="launchApplication()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:42:35 EST" name="launchApplication" finished-at="2025-11-03T08:42:45 EST" duration-ms="9968" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplication -->
+        <test-method signature="OrderHistoryTest()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:42:45 EST" name="OrderHistoryTest" finished-at="2025-11-03T08:42:47 EST" depends-on-methods="Basharmal.StandAloneTest.submitOrder" duration-ms="1241" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- OrderHistoryTest -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:Basharmal.StandAloneTest@4dc27487]" started-at="2025-11-03T08:42:47 EST" name="closeBrowser" finished-at="2025-11-03T08:42:48 EST" duration-ms="1026" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- Basharmal.StandAloneTest -->
+    </test> <!-- firstTest -->
+  </suite> <!-- Suite -->
+</testng-results>
