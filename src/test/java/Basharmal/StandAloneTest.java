@@ -24,7 +24,7 @@ public class StandAloneTest extends BaseTest {
     String userPassword = "R@hulshetty.123";
     String userEmail2 = "walwalahsherzai@gmail.com";
     String userPassword2 = "walwalah@S123";
-
+    //this is for githubHook test
     List<String> itemsAddToCart = Arrays.asList("ADIDAS ORIGINAL", "ZARA COAT 3", "iphone 13 pro");
 
     //    List<String> itemsAddToCart = Arrays.asList("ADIDAS ORIGINAL", "ZARA COAT 3", "iphone 13 pro");

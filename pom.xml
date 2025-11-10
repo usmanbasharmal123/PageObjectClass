@@ -12,12 +12,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -28,13 +25,11 @@
             <artifactId>testng</artifactId>
             <version>7.11.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/tools.jackson.core/jackson-databind -->
         <dependency>
             <groupId>tools.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>3.0.1</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
@@ -43,14 +38,19 @@
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>5.9.2</version> <!-- use latest stable -->
+            <version>5.9.2</version>
         </dependency>
-
-
     </dependencies>
+
     <profiles>
         <profile>
             <id>MainTest</id>
+<<<<<<< HEAD
+=======
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+>>>>>>> b2be7a1e3064b4e4ef54bd9082f361db1b4c31fd
             <build>
                 <plugins>
                     <plugin>
@@ -101,6 +101,7 @@
             </build>
         </profile>
     </profiles>
+
     <build>
         <plugins>
             <plugin>
@@ -108,9 +109,11 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.13.0</version>
                 <configuration>
-                    <source>23</source>
-                    <target>23</target>
-                    <compilerArgs>-<arg>-Xlint:unchecked</arg></compilerArgs>
+                    <source>17</source>
+                    <target>17</target>
+                    <compilerArgs>
+                        <arg>-Xlint:unchecked</arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
             <plugin>
@@ -125,4 +128,18 @@
             </plugin>
         </plugins>
     </build>
+<<<<<<< HEAD
 </project>
+=======
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>3.0.0-M7</version>
+            </plugin>
+        </plugins>
+    </reporting>
+</project>
+>>>>>>> b2be7a1e3064b4e4ef54bd9082f361db1b4c31fd
