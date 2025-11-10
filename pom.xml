@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -45,12 +46,9 @@
     <profiles>
         <profile>
             <id>MainTest</id>
-<<<<<<< HEAD
-=======
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
->>>>>>> b2be7a1e3064b4e4ef54bd9082f361db1b4c31fd
             <build>
                 <plugins>
                     <plugin>
@@ -128,9 +126,6 @@
             </plugin>
         </plugins>
     </build>
-<<<<<<< HEAD
-</project>
-=======
 
     <reporting>
         <plugins>
@@ -142,4 +137,3 @@
         </plugins>
     </reporting>
 </project>
->>>>>>> b2be7a1e3064b4e4ef54bd9082f361db1b4c31fd
