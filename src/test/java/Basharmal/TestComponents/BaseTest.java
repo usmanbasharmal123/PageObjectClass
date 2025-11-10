@@ -31,7 +31,7 @@ public class BaseTest {
     public ExtentReports extent;
 
     public WebDriver intialSetup() throws IOException {
-
+   //this is for githubHook test
         Properties prop = new Properties();
         FileInputStream input = new FileInputStream(System.getProperty("user.dir") + "//src//main//java//Basharmal//resources//GlobalData.properties");
         prop.load(input);
@@ -95,7 +95,7 @@ public class BaseTest {
 //        extent.createTest("Initial Demo");
         driver = intialSetup();
         loginPage = new LoginPage(driver);
-        loginPage.goTo();
+        loginPage.goTo(driver);
 //        extent.flush();
     }
 
