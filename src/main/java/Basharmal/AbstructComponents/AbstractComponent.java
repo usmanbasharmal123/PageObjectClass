@@ -1,4 +1,4 @@
-package Basharmal.abstractcomponents;
+package Basharmal.AbstructComponents;
 
 import Basharmal.pageObjects.CartSectionPage;
 import Basharmal.pageObjects.OrderSectionPage;

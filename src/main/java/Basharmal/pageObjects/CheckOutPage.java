@@ -1,6 +1,6 @@
 package Basharmal.pageObjects;
 
-import Basharmal.abstractcomponents.AbstractComponent;
+import Basharmal.AbstructComponents.AbstractComponent;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
